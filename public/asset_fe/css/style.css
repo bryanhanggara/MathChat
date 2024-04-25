@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;500&display=swap");
+body {
+  font-family: jost;
+}
+
+.btn-convert {
+  background-color: #8c52ff;
+}
+
+.navbar-b {
+  background-color: #e7e0ff;
+}
+
+.navbar-t {
+  background-color: #d8cffe;
+  box-shadow: 1px 1px 1px #d8cffe;
+}
+
+.navbar {
+  font-family: Jost;
+  transition: 0.5s;
+}
+.navbar .navbar-brand {
+  color: #8c52ff;
+}
+.navbar .navbar-brand img {
+  height: 50px;
+}
+.navbar .btn {
+  margin-left: 20px;
+}
+
+main {
+  margin-top: 100px;
+}
+main .artikel {
+  color: #8c52ff;
+}
+main .artikel a {
+  text-decoration: none;
+  color: #8c52ff;
+}
+
+.calculator .btn-secondary {
+  background-color: #d8cffe;
+  border: none;
+  color: #000;
+}
+.calculator .btn-primary {
+  background-color: #8c52ff;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;500&display=swap');
+$blue:    #0d6efd;
+$indigo:  #6610f2;
+$purple-sec: #d8cffe;
+$purple-pri:  #e7e0ff;
+$purple-txt: #8c52ff;
+
+body{
+    font-family: jost;
+}
+.btn-convert{
+    background-color: $purple-txt;
+}
+
+.navbar-b{
+    background-color: $purple-pri;
+}
+.navbar-t{
+    background-color: $purple-sec;
+    box-shadow: 1px 1px 1px $purple-sec;
+}
+.navbar{
+    
+    font-family: Jost;
+    transition: 0.5s;
+
+    .navbar-brand{
+        color: $purple-txt;
+        img{
+            height: 50px;
+        }
+    }
+    .btn{
+        margin-left: 20px;
+    }
+}
+
+main{
+    margin-top: 100px;
+    .artikel{
+        color: $purple-txt;
+
+        a{
+            text-decoration: none;
+            color: $purple-txt;
+        }
+    }
+}
+.calculator{
+
+    .btn-secondary{
+        background-color: $purple-sec;
+        border: none;
+        color: #000;
+    }
+
+    .btn-primary{
+        background-color: $purple-txt;
+    }
+}

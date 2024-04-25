@@ -1,0 +1,19 @@
+.card-discussions {
+    &:not(:last-child) {
+        margin-bottom: 16px;
+    }
+}
+
+.card-discussions-show-avatar-wrapper {
+    height: 32px;
+    width: 32px;
+}
+
+.card-discussion-delete-btn {
+    position: relative;
+    top: -1px;
+
+    &:hover {
+        color: $blue-600;
+    }
+}

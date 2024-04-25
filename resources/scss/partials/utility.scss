@@ -1,0 +1,171 @@
+.h-32px {
+    height: 32px;
+}
+
+.navbar{
+    transition: 0.5s;
+    .navbar-nav {
+        .nav-link.active {
+            color: $white;
+            font-weight: bold;
+        }
+    
+        .nav-link {
+            color: $white;
+    
+            &:hover {
+                color: $gray-200;
+            }
+        }
+    }
+}
+
+
+.nav-item {
+    padding-left: 0;
+    padding-right: 0;
+}
+@include media-breakpoint-up(lg) {
+    .nav-item {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.navbar-b{
+    background-color: $purple-pri;
+}
+.navbar-t{
+    background-color: $purple-sec;
+}
+
+
+.btn-primary-white {
+    background-color: $white;
+    color: $primary;
+    border-radius: 50px;
+    padding: 10px 24px;
+    min-width: 128px;
+
+    &:hover {
+        background-color: $gray-100;
+        color: $primary;
+    }
+}
+
+.btn-primary {
+    background-color: $blue;
+    color: $white;
+    border-radius: 50px;
+    padding: 10px 24px;
+    min-width: 128px;
+
+    &:hover {
+        color: $white;
+    }
+}
+
+.btn-secondary {
+    background-color: $white;
+    border-color: $blue;
+    color: $blue;
+    border-radius: 50px;
+    padding: 10px 24px;
+    min-width: 128px;
+
+    &:hover {
+        color: $white;
+        background-color: $primary;
+        border-color: $primary;
+    }
+}
+
+.h-315px {
+    height: 315px;
+}
+
+.min-h-372px {
+    min-height: 372px;
+}
+
+.bg-gray {
+    background-color: $gray-100;
+}
+
+.py-80px {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.card {
+    border: none;
+    border-radius: 20px;
+    padding: 24px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.color-gray {
+    color: $gray-500;
+}
+
+.card-avatar-sm {
+    width: 18px;
+    height: 18px;
+}
+
+.text-bg-light {
+    &:hover {
+        color: $primary !important;
+    }
+}
+
+.avatar-sm-wrapper {
+    height: 18px;
+    width: 18px;
+}
+
+.avatar {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.fs-12px {
+    font-size: 12px;
+}
+
+footer {
+    background-color: $gray-800;
+}
+
+.me-140px {
+    margin-right: 140px;
+}
+
+.like-icon {
+    height: 32px;
+    width: 32px;
+}
+
+pre {
+    padding: 12px;
+    font-size: 14px;
+    background-color: #fafbfd;
+    border: 1px solid #eaecf0;
+    border-radius: 6px;
+    color: #68747f;
+}
+
+.avatar-wrapper {
+    height: 128px;
+    width: 128px;
+}
+
+.avatar-nav-wrapper {
+    height: 36px;
+    width: 36px;
+}
