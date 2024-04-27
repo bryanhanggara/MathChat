@@ -68,7 +68,7 @@ Route::get('/convert', function () {
 })->name('convert');
 
 
-Route::prefix('admin')->group(function() {
+Route::prefix('admin')->middleware('auth')->group(function() {
     Route::get('/',[AdminController::class,'index'])->name('admin.index');
     Route::resource('blog', BlogController::class);
 });

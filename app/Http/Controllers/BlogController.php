@@ -60,9 +60,10 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
-        //
+        $blog = Blog::findorfail($id);
+        return view('pages.admin.blog.edit', compact('blog'));
     }
 
     /**
@@ -70,14 +71,39 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $request->validate([
+            'title' =>'',
+            'cover' => 'image|max:2048',
+            'content' => ''
+        ]);
+
+        $data = new Blog;
+        $data->title = $request->title;
+        if ($request->hasFile('cover')) {
+            // Hapus file cover lama jika ada
+            Storage::delete($item->cover);
+    
+            // Simpan file cover baru
+            $item->cover = $request->file('cover')->store('cover', 'public');
+        }
+        $data->content = $request->content;
+
+        $data->save();
+
+        return redirect()->route('blog.index')->with([
+            'sucess' => 'Berhasil Mengubah Blog'
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
-        //
+        $blog = Blog::findorfail($id);
+        $blog->delete();
+        return redirect()->route('blog.index')->with([
+            'success' => 'berhasil hapus blog'
+        ]);
     }
 }

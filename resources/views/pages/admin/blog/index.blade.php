@@ -25,7 +25,14 @@
                     <td>{{$blog->title}}</td>
                     <td>{{$blog->created_at}}</td>
                     <td>
-                        <a href="{{route('blog.edit', $blog->id)}}" class="btn btn-warning"><i class="bi bi-pen"></i></a>
+                        <a href="{{route('blog.edit', $blog->id)}}" class="btn btn-warning text-white"><i class="bi bi-pen"></i></a>
+                        <form action="{{route('blog.destroy',$blog->id)}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">
+                                <bi class="bi-trash"></bi>
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @empty
