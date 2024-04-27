@@ -93,7 +93,7 @@
         <li class="nav-item">
           <a class="nav-link {{ Route::currentRouteName() === 'discussions.index' ? 'active' : '' }}" href="{{ route('discussions.index') }}">Discussions</a>
         </li>
-        <a class="nav-link text-nowrap" href="{{ route('home') }}#about-us">Blog</a>
+        <a class="nav-link text-nowrap" href="{{ route('blog') }}">Blog</a>
         </li>
         <li class="nav-item">
           <div class="dropdown">

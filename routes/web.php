@@ -44,6 +44,7 @@ Route::namespace('App\Http\Controllers')->group(function() {
     Route::get('discussions/categories/{category}', 'CategoryController@show')
         ->name('discussions.categories.show');
     Route::get('blog', 'FeatureController@blog')->name('blog');
+    Route::get('blog/show/{id}', 'FeatureController@show')->name('blog.view');
 });
 
 Route::namespace('App\Http\Controllers\Auth')->group(function() {
