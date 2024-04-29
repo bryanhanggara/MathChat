@@ -14,9 +14,9 @@
                 {{$blog->title}}
               </h3>
               <p class="fs-5">Author | <span class="fs-6 text-secondary">{{$blog->created_at}}</span> </p>
-              <p class="text-artikel ">
+              <div class="text-artikel ">
                 {{$blog->content}}
-              </p>
+              </div>
            </div>
         </div>
         <div class="col-md-4">
