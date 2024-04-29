@@ -1,31 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;500&display=swap');
-
-$body-color: #414141;
-$headings-font-weight: 700;
-$purple-pri: #be73fc;
-$purple-sec:  #cd8fff;
-$purple-txt: #8c52ff;
-$blue: #be73fc;
-$white:#fff;
-$gray-100:#f8f8f8;
-$gray-200:#e4e4e4;
-$gray-500:#d3d3d3;
-$gray-800:#414141;
-$primary:#be73fc;
-
-body{
-    font-family: jost;
-}
-.btn-convert{
-    background-color: $purple-txt;
-}
-
 .h-32px {
     height: 32px;
 }
 
 .navbar{
-    z-index: 1;
     transition: 0.5s;
     .navbar-nav {
         .nav-link.active {
@@ -62,33 +39,6 @@ body{
     background-color: $purple-sec;
 }
 
-main{
-    margin-top: 100px;
-    .artikel{
-        color: $purple-txt;
-
-        a{
-            text-decoration: none;
-            color: $purple-txt;
-        }
-    }
-}
-.calculator{
-
-    .btn-secondary{
-        background-color: $purple-sec;
-        border: none;
-        color: #000;
-    }
-
-    .btn-primary{
-        background-color: $purple-txt;
-    }
-}
-
-.h-32px {
-    height: 32px;
-}
 
 .btn-primary-white {
     background-color: $white;
@@ -218,40 +168,4 @@ pre {
 .avatar-nav-wrapper {
     height: 36px;
     width: 36px;
-}
-
-.hero {
-    padding-top: 16px;
-    padding-bottom: 16px;
-}
-// @include media-breakpoint-up(lg) {
-//     .hero {
-//         padding-top: 144px;
-//         padding-bottom: 144px;
-//     }
-// }
-
-.hero-image {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.promote-icon {
-    width: 140px;
-    height: 140px;
-}
-
-.edit-avatar-wrapper {
-    position: relative;
-}
-
-.edit-avatar-show {
-    position: absolute;
-    left: 90px;
-    top: 90px;
-}
-
-.card-discussions-show-avatar-wrapper {
-    height: 32px;
-    width: 32px;
 }

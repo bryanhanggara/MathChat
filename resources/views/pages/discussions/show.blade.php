@@ -37,7 +37,7 @@
                                             <input type="text" value="{{ route('discussions.show', $discussion->slug) }}" id="current-url" class="d-none">
                                         </span>
 
-                                        @if ($discussion->user_id === auth()->id())
+                                        @if ($discussion->user_id == auth()->id())
                                         <span class="color-gray me-2">
                                             <a href="{{ route('discussions.edit', $discussion->slug) }}">
                                                 <small>Edit</small>

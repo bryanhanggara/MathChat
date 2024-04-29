@@ -6,11 +6,11 @@
             <div class="row pt-5 justify-content-center">
                 <div class="col-12 col-lg-6 my-auto mb-5 mb-lg-auto me-0">
                     <div class="d-none d-lg-block">
-                        <h2>Join the Laracuss Community</h2>
+                        <h2>Join the Math Community</h2>
                         <p>
                             <ul>
                                 <li>Stuck? Ask in the Discussions</li>
-                                <li>Get answers from experienced developers from around the world</li>
+                                <li>Get answers from experienced math from around the world</li>
                                 <li>Contribute by answering questions</li>
                             </ul>
                         </p>

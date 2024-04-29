@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('body')
-<div class="container" >
+<div class="container">
     <div class="card">
         <div class="card-header">
             <h3>
@@ -23,8 +23,18 @@
             </select>
 
             <div id="length-conversion" class="conversion">
-                <h6 class="card-title mt-3">Pilih Satuan Panjang Ke M</h6>
-                <select name="convert-length" id="convert-length" class="form-select mb-3">
+                <h6 class="card-title mt-3">Pilih Satuan Panjang</h6>
+                <select name="convert-length-from" id="convert-length-from" class="form-select mb-3">
+                    <option value="Km">Km</option>
+                    <option value="hm">hm</option>
+                    <option value="dam">dam</option>
+                    <option value="m">m</option>
+                    <option value="dm">dm</option>
+                    <option value="cm">cm</option>
+                    <option value="mm">mm</option>
+                </select>
+                <h6 class="card-title mt-3">ke</h6>
+                <select name="convert-length-to" id="convert-length-to" class="form-select mb-3">
                     <option value="Km">Km</option>
                     <option value="hm">hm</option>
                     <option value="dam">dam</option>
@@ -35,34 +45,56 @@
                 </select>
             </div>
 
-            <div id="weight-conversion" class="conversion" style="display:none;">
-                <h6 class="card-title mt-3">Pilih Satuan Berat ke        G</h6>
-                <select name="convert-weight" id="convert-weight" class="form-select mb-3">
+            <div id="weight-conversion" class="conversion">
+                <h6 class="card-title mt-3">Pilih Satuan Berat</h6>
+                <select name="convert-weight-from" id="convert-weight-from" class="form-select mb-3">
                     <option value="Kg">Kg</option>
-                    <option value="hg">hg</option>
-                    <option value="dag">dag</option>
                     <option value="g">g</option>
-                    <option value="dg">dg</option>
-                    <option value="cg">cg</option>
                     <option value="mg">mg</option>
+                    <option value="oz">oz</option>
+                    <option value="lb">lb</option>
+                </select>
+                <h6 class="card-title mt-3">ke</h6>
+                <select name="convert-weight-to" id="convert-weight-to" class="form-select mb-3">
+                    <option value="Kg">Kg</option>
+                    <option value="g">g</option>
+                    <option value="mg">mg</option>
+                    <option value="oz">oz</option>
+                    <option value="lb">lb</option>
                 </select>
             </div>
 
-            <div id="area-conversion" class="conversion" style="display:none;">
-                <h6 class="card-title mt-3">Pilih Satuan Luas Persegi</h6>
-                <select name="convert-area" id="convert-area" class="form-select mb-3">
-                    <option value="m2">m<sup>2</sup></option>
-                    <option value="cm2">cm<sup>2</sup></option>
-                    <option value="mm2">mm<sup>2</sup></option>
+            <div id="area-conversion" class="conversion">
+                <h6 class="card-title mt-3">Pilih Satuan Luas</h6>
+                <select name="convert-area-from" id="convert-area-from" class="form-select mb-3">
+                    <option value="m2">m2</option>
+                    <option value="cm2">cm2</option>
+                    <option value="mm2">mm2</option>
+                    <option value="km2">km2</option>
+                    <option value="ha">ha</option>
+                </select>
+                <h6 class="card-titlemt-3">ke</h6>
+                <select name="convert-area-to" id="convert-area-to" class="form-select mb-3">
+                    <option value="m2">m2</option>
+                    <option value="cm2">cm2</option>
+                    <option value="mm2">mm2</option>
+                    <option value="km2">km2</option>
+                    <option value="ha">ha</option>
                 </select>
             </div>
 
-            <div id="temperature-conversion" class="conversion" style="display:none;">
-                <h6 class="card-title mt-3">Pilih Satuan Suhu Dari Celcius</h6>
-                <select name="convert-temperature" id="convert-temperature" class="form-select mb-3">
-                    <option value="C">Celsius</option>
-                    <option value="F">Fahrenheit</option>
-                    <option value="K">Kelvin</option>
+            <div id="temperature-conversion" class="conversion">
+                <h6 class="card-title mt-3">Pilih Satuan Suhu</h6>
+                <select name="convert-temperature-from" id="convert-temperature-from" class="form-select mb-3">
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+                <h6 class="card-title mt-3">ke</h6>
+                <select name="convert-temperature-to" id="convert-temperature-to" class="form-select mb-3">
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
                 </select>
             </div>
 
@@ -83,136 +115,127 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-const convertType = document.getElementById("convert-type");
-const lengthConversion = document.getElementById("length-conversion");
-const weightConversion = document.getElementById("weight-conversion");
-const areaConversion = document.getElementById("area-conversion");
-const temperatureConversion = document.getElementById("temperature-conversion");
-const fromInput = document.getElementById("from");
-const toInput = document.getElementById("to");
-const convertBtn = document.getElementById("convertBtn");
+        const convertType = document.getElementById("convert-type");
+        const lengthConversion = document.getElementById("length-conversion");
+        const weightConversion = document.getElementById("weight-conversion");
+        const areaConversion = document.getElementById("area-conversion");
+        const temperatureConversion = document.getElementById("temperature-conversion");
+        const fromInput = document.getElementById("from");
+        const toInput = document.getElementById("to");
+        const convertBtn = document.getElementById("convertBtn");
 
-convertType.addEventListener("change", function () {
-    const selectedValue = convertType.value;
-    lengthConversion.style.display = "none";
-    weightConversion.style.display = "none";
-    areaConversion.style.display = "none";
-    temperatureConversion.style.display = "none";
+        convertType.addEventListener("change", function () {
+            const selectedValue = convertType.value;
+            lengthConversion.style.display = "none";
+            weightConversion.style.display = "none";
+            areaConversion.style.display = "none";
+            temperatureConversion.style.display = "none";
 
-    if (selectedValue === "length") {
-        lengthConversion.style.display = "block";
-    } else if (selectedValue === "weight") {
-        weightConversion.style.display = "block";
-    } else if (selectedValue === "area") {
-        areaConversion.style.display = "block";
-    } else if (selectedValue === "temperature") {
-        temperatureConversion.style.display = "block";
-    }
-});
+            if (selectedValue === "length") {
+                lengthConversion.style.display = "block";
+            } else if (selectedValue === "weight") {
+                weightConversion.style.display = "block";
+            } else if (selectedValue === "area") {
+                areaConversion.style.display = "block";
+            } else if (selectedValue === "temperature") {
+                temperatureConversion.style.display = "block";
+            }
+        });
 
-convertBtn.addEventListener("click", function () {
-    const convertTypeValue = convertType.value;
-    let result;
+        convertBtn.addEventListener("click", function () {
+            const fromValue = parseFloat(fromInput.value);
 
-    if (convertTypeValue === "length") {
-        const fromUnit = document.getElementById("convert-length").value;
-        const toUnit = "m";
-        const fromValue = parseFloat(fromInput.value);
-        result = convertLength(fromValue, fromUnit, toUnit);
-    } else if (convertTypeValue === "weight") {
-        const fromUnit = document.getElementById("convert-weight").value;
-        const toUnit = "g";
-        const fromValue = parseFloat(fromInput.value);
-        result = convertWeight(fromValue, fromUnit, toUnit);
-    } else if (convertTypeValue === "area") {
-        const fromUnit = document.getElementById("convert-area").value;
-        const toUnit = "m2";
-        const fromValue = parseFloat(fromInput.value);
-        result = convertArea(fromValue, fromUnit, toUnit);
-    } else if (convertTypeValue === "temperature") {
-        const fromUnit = document.getElementById("convert-temperature").value;
-        const toUnit = "C";
-        const fromValue = parseFloat(fromInput.value);
-        result = convertTemperature(fromValue, fromUnit, toUnit);
-    }
+            let result;
+            if (convertType.value === "length") {
+                const fromUnit = document.getElementById("convert-length-from").value;
+                const toUnit = document.getElementById("convert-length-to").value;
+                result = convertLength(fromValue, fromUnit, toUnit);
+            } else if (convertType.value === "weight") {
+                const fromUnit = document.getElementById("convert-weight-from").value;
+                const toUnit = document.getElementById("convert-weight-to").value;
+                result = convertWeight(fromValue, fromUnit, toUnit);
+            } else if (convertType.value === "area") {
+                const fromUnit = document.getElementById("convert-area-from").value;
+                const toUnit = document.getElementById("convert-area-to").value;
+                result = convertArea(fromValue, fromUnit, toUnit);
+            } else if (convertType.value === "temperature") {
+                const fromUnit = document.getElementById("convert-temperature-from").value;
+                const toUnit = document.getElementById("convert-temperature-to").value;
+                result = convertTemperature(fromValue, fromUnit, toUnit);
+            }
 
-    toInput.value = result;
-});
+            toInput.value = result;
+        });
 
-function convertLength(value, fromUnit, toUnit) {
-    const units = {
-        'Km': 1000,
-        'hm': 100,
-        'dam': 10,
-        'm': 1,
-        'dm': 0.1,
-        'cm': 0.01,
-        'mm': 0.001
-    };
 
-    const valueInMeter = value * units[fromUnit];
-    const result = valueInMeter / units[toUnit];
-    return result;
-}
+        function convertLength(value, fromUnit, toUnit) {
+            const units = {
+                'Km': 1000,
+                'hm': 100,
+                'dam': 10,
+                'm': 1,
+                'dm': 0.1,
+                'cm': 0.01,
+                'mm': 0.001
+            };
 
-function convertWeight(value, fromUnit, toUnit) {
-    const units = {
-        'Kg': 1000,
-        'hg': 100,
-        'dag': 10,
-        'g': 1,
-        'dg': 0.1,
-        'cg': 0.01,
-        'mg': 0.001
-    };
-
-    const valueInGram = value * units[fromUnit];
-    const result = valueInGram / units[toUnit];
-    return result;
-}
-
-function convertArea(value, fromUnit, toUnit) {
-    const units = {
-        'm2': 1,
-        'cm2': 0.0001,
-        'mm2': 0.000001
-    };
-
-    const valueInSquareMeter = value * units[fromUnit];
-    const result = valueInSquareMeter / units[toUnit];
-    return result;
-}
-
-function convertTemperature(value, fromUnit, toUnit) {
-    let result;
-    if (fromUnit === 'C') {
-        if (toUnit === 'F') {
-            result = (value * 9/5) + 32;
-        } else if (toUnit === 'K') {
-            result = value + 273.15;
-        } else {
-            result = value;
+            const valueInMeter = value * units[fromUnit];
+            const result = valueInMeter / units[toUnit];
+            return result;
         }
-    } else if (fromUnit === 'F') {
-        if (toUnit === 'C') {
-            result = (value - 32) * 5/9;
-        } else if (toUnit === 'K') {
-            result = (value - 32) * 5/9 + 273.15;
-        } else {
-            result = value;
+
+        function convertWeight(value, fromUnit, toUnit) {
+            const units = {
+                'Kg': 1,
+                'g': 0.001,
+                'mg': 0.000001,
+                'oz': 0.0283495,
+                'lb': 0.453592
+            };
+
+            const valueInKg = value * units[fromUnit];
+            const result = valueInKg / units[toUnit];
+            return result;
         }
-    } else if (fromUnit === 'K') {
-        if (toUnit === 'C') {
-            result = value - 273.15;
-        } else if (toUnit === 'F') {
-            result = (value - 273.15) * 9/5 + 32;
-        } else {
-            result = value;
+
+        function convertArea(value, fromUnit, toUnit) {
+            const units = {
+                'm2': 1,
+                'cm2': 0.01,
+                'mm2': 0.0001,
+                'km2': 1000000,
+                'ha': 10000
+            };
+
+            const valueInMeter = value * units[fromUnit];
+            const result = valueInMeter / units[toUnit];
+            return result;
         }
-    }
-    return result;
-}
-});
+
+        function convertTemperature(value, fromUnit, toUnit) {
+            if (fromUnit === "Celsius") {
+                if (toUnit === "Fahrenheit") {
+                    return (value * 9/5) + 32;
+                } else if (toUnit === "Kelvin") {
+                    return value + 273.15;
+                }
+            } else if (fromUnit === "Fahrenheit") {
+                if (toUnit === "Celsius") {
+                    return (value - 32) * 5/9;
+                } else if (toUnit === "Kelvin") {
+                    return (value - 32) * 5/9 + 273.15;
+                }
+            } else if (fromUnit === "Kelvin") {
+                if (toUnit === "Celsius") {
+                    return value - 273.15;
+                } else if (toUnit === "Fahrenheit") {
+                    return (value - 273.15) * 9/5 + 32;
+                }
+            }
+        }
+    });
+</script>
+
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

@@ -5,7 +5,7 @@
   <div class="row align-items-center h-100">
     <div class="col-12 col-lg-6">
       <h1>Math Chat<br />Community Forum</h1>
-      <p class="mb-4">Empowering the Laravel Community to connect, share and learn</p>
+      <p class="mb-4">Empowering the Math Community to connect, share and learn</p>
       <a href="{{ route('auth.sign-up.show') }}" class="btn btn-primary me-2 mb-2 mb-lg-0">Sign Up</a>
       <a href="{{ route('discussions.index') }}" class="btn btn-secondary mb-2 mb-lg-0">Join Discussions</a>
     </div>
